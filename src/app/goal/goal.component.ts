@@ -7,6 +7,14 @@ import { Goal } from "../goal";
   styleUrls: ["./goal.component.css"]
 })
 export class GoalComponent implements OnInit {
+  completeGoal(isComplete, index) {
+    if (isComplete) {
+      this.goals.splice(index, 1);
+    }
+  }
+  toggleDetails(index) {
+    this.goals[index].showDescription = !this.goals[index].showDescription;
+  }
   goals: Goal[] = [
     new Goal(
       1,
